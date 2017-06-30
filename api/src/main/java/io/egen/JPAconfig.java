@@ -20,9 +20,6 @@ import java.util.Properties;
 @EnableTransactionManagement
 public class JPAconfig {
 
-    @Autowired
-    private Environment env;
-
     @Bean
     public LocalContainerEntityManagerFactoryBean emf() {
         LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
@@ -51,10 +48,10 @@ public class JPAconfig {
     }
 
     private Properties jpaProperties() {
-        Properties props = new Properties();
-        props.put("hibernate.dialect", "org.hibernate.dialect.MySQL57Dialect");
-        props.put("hibernate.show_sql", "true");
-        props.put("hibernate.hbm2ddl.auto","create");
-        return props;
+        Properties Properties = new Properties();
+        Properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL57Dialect");
+        Properties.put("hibernate.show_sql", "true");
+        Properties.put("hibernate.hbm2ddl.auto","validate");
+        return Properties;
     }
 }
